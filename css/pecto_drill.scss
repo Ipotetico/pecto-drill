@@ -1,0 +1,855 @@
+$pecto_navy: #004087;
+$pecto_red: #c90c0f;
+$pecto_bacground: #f1f9fe;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+body {
+  height: 100vw;
+  height: 100vh;
+  font-family: "Oswald", sans-serif;
+  background-color: $pecto_bacground;
+}
+
+.main_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100%;
+  background-color: $pecto_bacground;
+  opacity: 0;
+  transition: 0.5s;
+
+  &.active {
+    z-index: 5;
+    opacity: 1;
+    display: flex;
+  }
+}
+
+.page {
+  width: 100%;
+  height: 90%;
+}
+
+.head {
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 15%;
+  background-color: $pecto_navy;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 100%;
+}
+
+h1 {
+  color: white;
+  font-size: 4em;
+  text-transform: uppercase;
+  margin-left: 0.7em;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.foot {
+  position: fixed;
+  z-index: 15;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  max-width: 100%;
+  width: 100%;
+  height: 15%;
+  padding: 1rem 2rem;
+  font-size: 100%;
+  //   background-color: $pecto_bacground;
+}
+
+a {
+  text-align: center;
+  font-weight: 200;
+  padding: 0.5em 2em;
+  border: 0px solid $pecto_navy;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.5s;
+  font-size: 90%;
+
+  &.active {
+    border-bottom: 1em solid $pecto_red;
+  }
+}
+
+.kwadrat {
+  position: relative;
+  width: 20%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+  left: 0;
+  border-radius: 50%;
+
+  img {
+    width: 100%;
+    height: auto;
+
+    &:nth-last-of-type(1) {
+      position: relative;
+    }
+
+    &:nth-last-of-type(2) {
+      position: absolute;
+    }
+  }
+
+  &.active {
+    z-index: 10;
+    transform: scale(2);
+    box-shadow: 0 0.3rem 0.3rem rgba($color: #000000, $alpha: 0.8);
+    background-color: rgba($color: $pecto_bacground, $alpha: 0.5);
+
+    &:nth-of-type(1) {
+      left: 10%;
+    }
+
+    &:last-of-type {
+      left: -10%;
+    }
+
+    .radarek {
+      animation: turn 5s ease-in-out infinite;
+
+      @keyframes turn {
+        0% {
+          transform: rotate(0);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}
+
+.radarek {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#section01 {
+  .content {
+    max-width: 100%;
+    width: 100%;
+    height: 86%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+#section02 {
+  .head {
+    position: absolute;
+    width: 100%;
+    height: 6.12em;
+    // z-index: 10;
+  }
+
+  .content {
+    width: 90%;
+    top: 55%;
+    .kolko {
+      &:nth-of-type(1) {
+        left: 2%;
+        background-color: yellow;
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+        &.active {
+          transform: translateX(300%) scale(2.5);
+        }
+      }
+
+      &:nth-of-type(2) {
+        background-image: url(../img/normalizuje.svg);
+        left: 18%;
+        &.active {
+          transform: translateX(200%) scale(2.5);
+        }
+      }
+
+      &:nth-of-type(3) {
+        background-image: url(../img/zwieksza.svg);
+        left: 34%;
+        &.active {
+          transform: translateX(65%) scale(2.5);
+        }
+      }
+
+      &:nth-of-type(4) {
+        background-image: url(../img/viru.svg);
+        left: 51%;
+        &.active {
+          transform: translateX(-50%) scale(2.5);
+        }
+      }
+
+      &:nth-of-type(5) {
+        left: 68%;
+        background-image: url(../img/antibo.svg);
+
+        &.active {
+          transform: translateX(-200%) scale(2.5);
+        }
+      }
+      &:nth-of-type(6) {
+        left: 85%;
+        background-image: url(../img/bakcy.svg);
+        &.active {
+          transform: translateX(-300%) scale(2.5);
+        }
+      }
+    }
+  }
+  #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+}
+
+#section03 {
+  .content {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 50%;
+
+    img {
+      height: 80%;
+      width: auto;
+      bottom: 0;
+      display: flex;
+
+      &:nth-of-type(2) {
+        height: 100%;
+      }
+    }
+
+    .wykres {
+      display: flex;
+      align-items: flex-start;
+      width: 60%;
+      height: 60%;
+      margin-bottom: 10em;
+      margin-right: 2em;
+      background-image: url(../img/wykres_2.gif);
+      background-position: right;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+}
+
+#section04 {
+  .content {
+    top: 65%;
+    width: 90%;
+    height: 100%;
+
+    .reko_pict {
+      z-index: 10;
+      display: flex;
+      align-items: flex-end;
+      width: 30%;
+      height: 40%;
+      margin-bottom: 7em;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      cursor: pointer;
+      transition: 0.5s;
+
+      &.active {
+        .recoText {
+          left: 50%;
+          transform: translate(-50%);
+          z-index: 10;
+          position: absolute;
+          width: 15em;
+          height: 7em;
+          background-color: rgba($color: white, $alpha: 0.9);
+
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+
+      &:nth-of-type(1) {
+        transform: scale(1);
+        background-image: url(../img/gold.png);
+
+        &.active {
+          transform: translate(160%, -50%) scale(2);
+
+          z-index: 30;
+
+          .recoText {
+            background-image: url(../img/text_reco_2019@2x.png);
+          }
+        }
+      }
+
+      &:nth-of-type(2) {
+        background-image: url(../img/rekomendacje.png);
+
+        &.active {
+          transform: translate(50%, -20%) scale(1.8);
+          z-index: 30;
+
+          .recoText {
+            background-image: url(../img/text_reco_2016@4x.png);
+          }
+        }
+      }
+
+      &:nth-of-type(3) {
+        background-image: url(../img/PTP.png);
+        &.active {
+          transform: translate(-50%, -30%) scale(2);
+          z-index: 30;
+
+          .recoText {
+            background-image: url(../img/text_reco_PTP@4x.png);
+          }
+        }
+      }
+
+      &:nth-of-type(4) {
+        background-image: url(../img/PTO.png);
+
+        &.active {
+          transform: translate(-150%, -30%) scale(2);
+          z-index: 30;
+
+          .recoText {
+            background-image: url(../img/text_reco_PTO.svg);
+          }
+        }
+      }
+    }
+  }
+
+  #overlay {
+    position: absolute;
+    z-index: 19;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0);
+    transition: 0.8s;
+    display: none;
+
+    &.active {
+      background-color: rgba($color: #000000, $alpha: 0.6);
+      display: block;
+    }
+  }
+}
+
+#section05 {
+  .kwadracik {
+    position: relative;
+    height: 50%;
+    width: calc(100 / 3 * 1%);
+    transform: scale(1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      position: absolute;
+      top: 0;
+      transition: 0.5s;
+
+      &:nth-of-type(1) {
+        opacity: 1;
+      }
+      &:nth-of-type(2) {
+        opacity: 0;
+      }
+    }
+
+    &.active {
+      z-index: 100;
+      transform: scale(1);
+
+      img {
+        &:nth-of-type(1) {
+          opacity: 0;
+        }
+        &:nth-of-type(2) {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    .content {
+      height: 65%;
+      width: 95%;
+      top: 55%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+
+      .pojemnik {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 25% 50% 25%;
+        grid-template-rows: 1fr;
+
+        .pojemnik--srodek {
+          width: 100%;
+          height: 90%;
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 20% 80%;
+          overflow: visible;
+
+          .pojemnik--srodek--two {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+            overflow: visible;
+
+            .pojemnik--na--kwadraty {
+              width: 100%;
+              height: 100%;
+              display: grid;
+              grid-template-rows: 1fr;
+              overflow: visible;
+
+              .kwadratung {
+                max-width: 100%;
+                max-height: 100%;
+                justify-self: center;
+                align-self: center;
+                transform: scale(1);
+                transition: 0.5s;
+                cursor: pointer;
+
+                &.active {
+                  transform: scale(1.2);
+                  z-index: 100;
+                }
+              }
+
+              &.one {
+                grid-template-columns: 1fr 1fr 1fr;
+              }
+
+              &.two {
+                grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
+                transform: translateY(-20%);
+              }
+            }
+          }
+
+          img {
+            max-width: 100%;
+            max-height: 100%;
+            justify-self: center;
+          }
+        }
+
+        .na--pakszot {
+          width: 100%;
+          height: 90%;
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 70% 30%;
+
+          img {
+            max-width: 100%;
+            max-height: 100%;
+            align-self: center;
+            justify-self: center;
+          }
+
+          .pudelko--na--paczke {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+
+            &.active {
+              .paczka {
+                transform: translateY(7%) scale(1.1);
+                z-index: -1;
+              }
+
+              .dawka {
+                opacity: 1;
+                display: flex;
+                z-index: 50;
+                transform: translateY(-40%) scale(1);
+              }
+            }
+          }
+
+          .dawka {
+            width: 90%;
+            height: 15%;
+            background-color: $pecto_navy;
+            opacity: 0;
+            transform: translateY(-5%) scale(0.5);
+            z-index: 5;
+            transition: 0.5s;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .paczka {
+            max-width: 100%;
+            max-height: 100%;
+            align-self: center;
+            justify-self: center;
+            transform: translateY(10%) scale(1);
+            transition: 0.5s;
+          }
+        }
+
+        .syrop {
+          width: 30%;
+          height: 100%;
+          background-position: top;
+          background-repeat: no-repeat;
+          background-size: cover;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+
+          h1 {
+            color: $pecto_red;
+            font-size: 1rem;
+            text-align: center;
+          }
+          p {
+            color: $pecto_navy;
+            font-family: "Montserrat", sans-serif;
+            font-size: 0.6rem;
+            text-align: center;
+          }
+
+          .fota {
+            height: 95%;
+            width: 100%;
+
+            img {
+              position: absolute;
+              top: 0;
+              width: 100%;
+            }
+          }
+
+          .fota {
+            width: 90%;
+            height: 100%;
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            transform: scale(0.8);
+            transition: 0.5s;
+
+            &.active {
+              transform: scale(1);
+              .napis {
+                opacity: 1;
+              }
+            }
+
+            .napis {
+              position: absolute;
+              width: 100%;
+              height: 20%;
+              background-color: $pecto_navy;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              transition: 0.5s;
+              opacity: 0;
+            }
+          }
+
+          .dawka {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+        }
+
+        .syrop_2 {
+          width: 30%;
+          height: 100%;
+          background-position: top;
+          background-repeat: no-repeat;
+          background-size: cover;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+
+          .dawka {
+            position: absolute;
+            top: 75%;
+            width: 100%;
+            height: 20%;
+          }
+
+          h1 {
+            color: $pecto_red;
+            font-size: 1rem;
+            text-align: center;
+          }
+
+          h2 {
+            color: $pecto_red;
+            font-size: 0.8rem;
+            text-align: center;
+            font-family: "Montserrat", sans-serif;
+            font-weight: normal;
+            text-transform: uppercase;
+          }
+          p {
+            color: $pecto_navy;
+            font-family: "Montserrat", sans-serif;
+            font-size: 0.6rem;
+            text-align: center;
+          }
+
+          .dawka {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 40%;
+            width: 95%;
+
+            h1 {
+              color: $pecto_red;
+              font-size: 1rem;
+              text-align: center;
+            }
+
+            h2 {
+              color: $pecto_red;
+              font-size: 0.8rem;
+              text-align: center;
+              font-family: "Montserrat", sans-serif;
+              font-weight: normal;
+              text-transform: uppercase;
+            }
+            p {
+              color: $pecto_navy;
+              font-family: "Montserrat", sans-serif;
+              font-size: 0.6rem;
+              text-align: center;
+            }
+          }
+
+          .fota_2 {
+            position: absolute;
+            width: 100%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            transform: scale(0.8);
+            transition: 0.5s;
+            top: 5%;
+
+            img {
+              width: 100%;
+            }
+
+            &.active {
+              z-index: 100;
+              transform: scale(1);
+              .napis {
+                opacity: 1;
+              }
+            }
+
+            .napis {
+              position: absolute;
+              width: 20%;
+              height: 20%;
+              background-color: $pecto_navy;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              transition: 0.5s;
+              opacity: 0;
+              text-align: center;
+            }
+          }
+        }
+
+        .plaster {
+          z-index: 100;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          height: 85%;
+          width: 50%;
+        }
+      }
+    }
+
+    .logo_pecto {
+      width: 100%;
+      height: 15%;
+      background-image: url(../img/logo_Pecto.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+#sectionSil {
+  .content {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 80%;
+    // background-image: url(../img/sil_01.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+
+    img {
+      position: absolute;
+      bottom: 5%;
+    }
+
+    .switch {
+      z-index: 1000;
+      position: absolute;
+      width: 4em;
+      height: 4em;
+      top: 45%;
+      transform: rotate(0);
+      right: 1em;
+      background-image: url(../img/strzalka.svg);
+      transition: 0.5s;
+      cursor: pointer;
+
+      &.active {
+        transform: rotate(180deg);
+      }
+    }
+
+    .sil_sil {
+      position: absolute;
+      width: 100%;
+      height: 55%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .sirup {
+      background-image: url(../img/sil_02_28_10.svg);
+      transform: translate(0%, 0);
+      transition: 0.5s;
+
+      &.active {
+        transform: translate(-100%, 0);
+      }
+    }
+
+    .tabsy {
+      background-image: url(../img/sil_03_28_10.svg);
+      transform: translate(0%, 0);
+      transition: 0.5s;
+
+      &.active {
+        transform: translate(100%, 0);
+      }
+    }
+  }
+}
